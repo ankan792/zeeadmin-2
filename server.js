@@ -79,14 +79,14 @@ app.put('/products/:id', async (req, res) => {
         // update the product with the data from the request body.
         const product = await Product.findByIdAndUpdate(id, req.body);
         // if product is not found, send 404 and error message.
-        if (!product) {
-            return res.status(404).json({
-                message: `cannot find the product with ID: ${id}`
-            })
-            // if product is found, send the updated product data.
+        if (product) {
             const UpdatedProduct = await Product.findById(id);
-            res.status(200).json(UpdatedProduct);
+            return res.status(200).json(UpdatedProduct)
+            // if product is found, send the updated product data. 
         }
+        res.status(404).json({
+            message: `cannot find the product with ID: ${id}`
+        });
     } catch (error) {
         // console.log(eror.message)
         res.status(500).json({ "message": error.message })
@@ -117,7 +117,7 @@ app.delete('/products/:id', async (req, res) => {
 })
 
 // CONNECTING TO THE DATABASE --> MONGODB
-mongoose.connect('mongodb://admin:Subha12345@ac-cjbmvrj-shard-00-00.roavua4.mongodb.net:27017,ac-cjbmvrj-shard-00-01.roavua4.mongodb.net:27017,ac-cjbmvrj-shard-00-02.roavua4.mongodb.net:27017/?ssl=true&replicaSet=atlas-cfb1ut-shard-0&authSource=admin&retryWrites=true&w=majority').then(() => {
+mongoose.connect('mongodb://sujayghoshcool:z1y2x3w4@cluster1-shard-00-00.oppb2.mongodb.net:27017,cluster1-shard-00-01.oppb2.mongodb.net:27017,cluster1-shard-00-02.oppb2.mongodb.net:27017/?ssl=true&replicaSet=atlas-14fj07-shard-0&authSource=admin&retryWrites=true&w=majority').then(() => {
     console.log("Database successfully connected!");
     app.listen(port, () => {
         console.log(`Server is active on: ${port}`)
