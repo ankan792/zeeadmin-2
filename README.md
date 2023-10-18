@@ -1,4 +1,4 @@
-# Backend-restful-CRUD-API-NodeJS🟢
+# ZMM-ADMIN-CRUD-Operation
 This repo contains all the src files for CRUD API created using Node JS , Express JS framework, Mongo DB, Mongoose ODM library.
 
 # CRUD API Project
