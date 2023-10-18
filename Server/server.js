@@ -1,6 +1,6 @@
 // DECLARING THE DEPENDENCIES--> DEPENDENCIES ARE THE PACKAGES THAT WE NEED TO INSTALL TO MAKE OUR APPLICATION WORK.
 const express = require('express')
-
+const cors = require('cors')
 // declaring mongoose to connect to mongodb
 const mongoose = require('mongoose')
 
@@ -12,10 +12,15 @@ const Product = require('./models/productmodel')
 // declaring port
 const port = 3000
 
+app.use(cors({
+    origin: ['http://localhost:5173'],
+    credentials: true,
+}));
 
 // DECLARING MIDDLEWARE --> MIDDLEWARE IS A FUNCTION THAT HAS ACCESS TO THE REQUEST AND RESPONSE OBJECTS.
 // we are using express middleware to parse the json data coming from the client
 app.use(express.json())
+
 // we are using express middleware to parse the urlencoded data coming from the client
 app.use(express.urlencoded({ extended: false }))
 
