@@ -1,31 +1,24 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema(
+const userSchema = mongoose.Schema(
     {
-        name:{
-            type: String,
-            required: [ true, "Enter Product name."] //validation message is given as second parameter.
-        },
-        quantity:{
-            type: Number,
-            required: true,
-            default: 0
-        },
-        price:{
-            type: Number,
-            required: true,
-        },
-        image:{
-            type: String,
-            required: false,
-        }
-
-    },
-    {
-        timestamps: true //used to track when data is created or modified in the database.
+        name: String,
+        address: String,
+        city: String,
+        pinCode: String,
+        representation: String,
+        representation1: String,
+        phoneNumber: String,
+        phoneNumber1: String,
+        email: String,
+        regNumber: String,
+        password: String,
+        aadharCard: String,
+        aadharCard1: String,
+        registrationForm: String,
     }
-)
+);
 
-const Product = mongoose.model('Product', productSchema) //Now, we have model named 'Product' which is based on productSchema.
+const User = mongoose.model('User', userSchema);
 
-module.exports = Product //exporting the model.
+module.exports = User; // Export the "User" model
