@@ -95,7 +95,7 @@ const App = () => {
   return (
     <div>
       {loggedIn ? (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-[#E6C8C8] min-h-screen">
           <div className="container mx-auto p-4 flex flex-col justify-center items-center">
             <h1 className="text-3xl text-red-800 font-semibold mt-5 mb-4">
               Welcome to ZeeBangla Muktomancho Admin Dashboard
@@ -104,7 +104,7 @@ const App = () => {
             <div className="flex justify-center my-10">
               <button
                 className={`${
-                  activeTab === 'All' ? 'bg-black text-white' : 'bg-gray-300 text-gray-600'
+                  activeTab === 'All' ? 'bg-black text-white' : 'bg-white text-gray-600'
                 } py-2 px-4 rounded-lg mr-4 text-xl`}
                 onClick={() => setActiveTab('All')}
               >
@@ -112,7 +112,7 @@ const App = () => {
               </button>
               <button
                 className={`${
-                  activeTab === 'Verified' ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-600'
+                  activeTab === 'Verified' ? 'bg-[#2E7D31] text-white' : 'bg-white text-gray-600'
                 } py-2 px-4 rounded-lg mr-4 text-xl`}
                 onClick={() => setActiveTab('Verified')}
               >
@@ -120,7 +120,7 @@ const App = () => {
               </button>
               <button
                 className={`${
-                  activeTab === 'Unverified' ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-600'
+                  activeTab === 'Unverified' ? 'bg-red-800 text-white' : 'bg-white text-gray-600'
                 } py-2 px-4 rounded-lg text-xl`}
                 onClick={() => setActiveTab('Unverified')}
               >
@@ -133,7 +133,7 @@ const App = () => {
                 users.map((user) => (
                   <div
                     key={user._id}
-                    className="bg-white rounded-[15px] shadow-md p-4 mb-4 flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer hover:bg-red-100"
+                    className="bg-white rounded-[15px] shadow-md p-4 mb-4 border border-gray-300 flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer hover:bg-white"
                   >
                     <div>
                       <h2 className="text-xl text-red-800 font-semibold mb-6">{user.name}</h2>
@@ -192,13 +192,13 @@ const App = () => {
                     <div className="flex mt-5 justify-between">
                       <button
                         onClick={() => handleAccept(user._id)}
-                        className="bg-green-500 text-white p-2 rounded-lg w-20 hover:bg-green-600"
+                        className="bg-[#2E7D31] text-white p-2 rounded-lg w-20 hover:bg-green-600"
                       >
                         Accept
                       </button>
                       <button
                         onClick={() => handleDecline(user._id)}
-                        className="bg-red-500 text-white p-2 rounded-lg w-20 hover:bg-red-600"
+                        className="bg-red-800 text-white p-2 rounded-lg w-20 hover:bg-red-600"
                       >
                         Decline
                       </button>
@@ -210,7 +210,7 @@ const App = () => {
                 verifiedUsers.map((user) => (
                   <div
                     key={user._id}
-                    className="bg-green-100 rounded-[15px] shadow-md p-4 mb-4 flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer"
+                    className="bg-white rounded-[15px] shadow-md p-4 mb-4 border-[4px] border-[#2E7D31] flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer"
                   >
                     {/* Display user details from the verifiedUsers schema */}
                     <div>
@@ -281,7 +281,7 @@ const App = () => {
                 unverifiedUsers.map((user) => (
                   <div
                     key={user._id}
-                    className="bg-red-100 rounded-[15px] shadow-md p-4 mb-4 flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer"
+                    className="bg-white rounded-[15px] shadow-md p-4 mb-4 border-[4px] border-red-800 flex flex-col justify-between hover:translate-y-2 hover:transition hover:ease-linear hover:cursor-pointer"
                   >
                     
                     <div>
