@@ -16,13 +16,13 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (request, response) => {
-    response.send("Hello World");
-});
+// app.get('/', (request, response) => {
+//     response.send("Hello World");
+// });
 
-app.get('/blog', (request, response) => {
-    response.send("Welcome to SHERLOCK's blog");
-});
+// app.get('/blog', (request, response) => {
+//     response.send("Welcome to SHERLOCK's blog");
+// });
 
 // GET all users from the database
 // GET all users from the database
