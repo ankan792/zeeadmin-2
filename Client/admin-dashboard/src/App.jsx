@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     // Fetch all users when the component mounts
-    axios.get('http://localhost:3005/users')
+    axios.get('https://zee-bangla-mukto-mancho-admin-backend.vercel.app/users')
       .then((response) => {
         setUsers(response.data);
       })
@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     // Fetch verified users when the component mounts
-    axios.get('http://localhost:3005/verified-users')
+    axios.get('https://zee-bangla-mukto-mancho-admin-backend.vercel.app/verified-users')
       .then((response) => {
         setVerifiedUsers(response.data);
       })
@@ -34,7 +34,7 @@ const App = () => {
 
   useEffect(() => {
     // Fetch verified users when the component mounts
-    axios.get('http://localhost:3005/unverified-users')
+    axios.get('https://zee-bangla-mukto-mancho-admin-backend.vercel.app/unverified-users')
       .then((response) => {
         setUnverifiedUsers(response.data);
       })
@@ -58,7 +58,7 @@ const App = () => {
     const userCopy = { ...userToAccept, label: 'accept' };
   
     // Update the user data in the database with the new label
-    axios.post('http://localhost:3005/verified-users', userCopy)
+    axios.post('https://zee-bangla-mukto-mancho-admin-backend.vercel.app/verified-users', userCopy)
       .then(() => {
         // User update was successful
         setVerifiedUsers([...verifiedUsers, userCopy]);
@@ -82,7 +82,7 @@ const App = () => {
     const userCopy1 = { ...userToDecline, label: 'decline' };
   
     // Update the user data in the database with the new label
-    axios.post('http://localhost:3005/unverified-users', userCopy1)
+    axios.post('https://zee-bangla-mukto-mancho-admin-backend.vercel.app/unverified-users', userCopy1)
       .then(() => {
         // User update was successful
         setUnverifiedUsers([...unverifiedUsers, userToDecline]);

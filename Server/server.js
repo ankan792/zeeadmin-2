@@ -8,11 +8,10 @@ const unVerifiedUser = require('./models/unverifiedUserModel');
 const app = express();
 const port = 3005;
 
-const corsOptions = {
-    origin: '*',
-  };
-
-  app.use(cors(corsOptions));
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://zee-bangla-mukto-mancho-admin.vercel.app'],
+    credentials: true,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
