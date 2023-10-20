@@ -6,7 +6,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    if (username === '123' && password === '123') {
+    if (username === 'ZeeBanglaMuktoMancho' && password === 'ZeeBanglaMuktoMancho') {
       // Successful login
       onLogin();
     } else {

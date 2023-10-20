@@ -105,7 +105,7 @@ const App = () => {
               <button
                 className={`${
                   activeTab === 'All' ? 'bg-black text-white' : 'bg-gray-300 text-gray-600'
-                } py-2 px-4 rounded-lg mr-4 text-xl bg-red-100 `}
+                } py-2 px-4 rounded-lg mr-4 text-xl`}
                 onClick={() => setActiveTab('All')}
               >
                 All
