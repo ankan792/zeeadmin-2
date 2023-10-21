@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require('./models/productmodel'); // Import the User model
+const User = require('./models/usermodel'); // Import the User model
 const VerifiedUser = require('./models/verifiedUserModel');
 const unVerifiedUser = require('./models/unverifiedUserModel');
+const Participant = require('./models/participantModel.js');
+const VerifiedParticipant = require('./models/verifiedParticipantModel.js');
+const unVerifiedParticipant = require('./models/unverifiedParticipantModel.js');
 
 const app = express();
 const port = 3005;
@@ -105,6 +108,65 @@ app.post('/verified-users', async (req, res) => {
     }
   });
 
+  app.get('/participants', async (req, res) => {
+    try {
+        const participants = await Participant.find({});
+        res.status(200).json(participants);
+    } catch (error) {
+        res.status(500).json({
+            "message": error.message
+        });
+    }
+});
+
+
+  app.get('/verified-participants', async (req, res) => {
+    try {
+        const verifiedParticipants = await VerifiedParticipant.find({});
+        res.status(200).json(verifiedParticipants);
+    } catch (error) {
+        res.status(500).json({
+            "message": error.message
+        });
+    }
+});
+
+app.get('/unverified-participants', async (req, res) => {
+    try {
+        const unverifiedParticipants = await unVerifiedParticipant.find({});
+        res.status(200).json(unverifiedParticipants);
+    } catch (error) {
+        res.status(500).json({
+            "message": error.message
+        });
+    }
+});
+
+app.post('/verified-participants', async (req, res) => {
+    try {
+        const participantData = req.body;
+        const verifiedParticipant = new VerifiedParticipant(participantData);
+        await verifiedParticipant.save();
+        res.status(200).json({
+            message: 'Participant accepted and moved to verified participants.',
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+app.post('/unverified-participants', async (req, res) => {
+    try {
+        const participantData = req.body;
+        const unverifiedParticipant = new unVerifiedParticipant(participantData);
+        await unverifiedParticipant.save();
+        res.status(200).json({
+            message: 'Participant moved to unverified participants.',
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 // app.put('/accept-user/:id', async (req, res) => {
 //     try {
 //       const { id } = req.params;
